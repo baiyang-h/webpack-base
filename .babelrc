@@ -1,0 +1,24 @@
+{
+    // presets 执行顺序是从下往上
+    "presets": [  
+        [
+            "@babel/preset-env",
+            {
+                // 转换 api 的，有些新的api，按需加载 ，就只会包含代码需要的 polyfill， 不会像以前使用 polyfill 那样，一股脑直接把整个 polyfill 都导入进来，导致文件体积变大
+                // 有一点需要注意：配置此参数的值为 usage ，必须要同时设置 corejs
+                "useBuiltIns": "usage",
+                // 就相当于以前的 babel-polyfill
+                "corejs": 3                     // 注意 这里安装 必须是 生产环境  npm install --save core-js
+            }
+        ]
+    ],
+    // 执行顺序是从上往下
+    "plugins": [
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+        // 一般用 宽松的， 因为 宽松的 才能使用装饰器
+        ["@babel/plugin-proposal-class-properties", {"loose": true}],   // {"loose": true} 表示宽松的， class 中 的 实例属性使用 this.a = 1 这种方式， 默认是不宽松的，即 false， 会用 Object.defineProperty 这种方式
+        // 有时，我们在a文件中引入了b文件， 而a中和b中都有 class 类， 如果不做处理，最后打包出来，每个文件都会进行 class 转义， 所以我们使用 babel-plugin-transform-runtime， 来避免编译后的代码中出现重复的帮助程序，有效减少包体积
+        // npm install --save-dev @babel/plugin-transform-runtime   npm install --save @babel/runtime
+        "@babel/plugin-transform-runtime"
+    ]
+}

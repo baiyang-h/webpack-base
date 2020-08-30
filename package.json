@@ -1,0 +1,48 @@
+{
+  "name": "webpack-base",
+  "version": "1.0.0",
+  "description": "初始化模板",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack-dev-server --env=development --config ./build/webpack.base.js",
+    "dev:build": "webpack --env=development --config ./build/webpack.base.js",
+    "build": "webpack --env.production --config ./build/webpack.base.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/visitor-h/webpack-base.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/visitor-h/webpack-base/issues"
+  },
+  "homepage": "https://github.com/visitor-h/webpack-base#readme",
+  "dependencies": {
+    "@babel/runtime": "^7.11.2",
+    "core-js": "^3.6.5",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.4",
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/plugin-transform-runtime": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "autoprefixer": "^9.8.6",
+    "babel-loader": "^8.1.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^4.2.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "mini-css-extract-plugin": "^0.11.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.2.1",
+    "terser-webpack-plugin": "^4.1.0",
+    "url-loader": "^4.1.0",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-merge": "^5.1.2"
+  }
+}
